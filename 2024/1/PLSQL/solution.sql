@@ -47,10 +47,8 @@ END;
 /
 
 DECLARE
-    v_first_example  numbers := numbers(3, 4, 2, 1, 3,
-                                      3);
-    v_second_example numbers := numbers(4, 3, 5, 3, 9,
-                                       3, 3);
+    v_first_example  numbers := numbers(3, 4, 2, 1, 3, 3);
+    v_second_example numbers := numbers(4, 3, 5, 3, 9, 3);
 BEGIN
     dbms_output.put_line(get_lists_distance(v_first_example, v_second_example));
 END;

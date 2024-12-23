@@ -8,33 +8,33 @@ class Solution {
     std::vector<int> firstList;
     std::vector<int> secondList;
 
-  int calcDistance(){
-    int sum = 0;
+    int calcDistance(){
+      int sum = 0;
 
-    for (size_t i=0; i < firstList.size(); i++){
-      sum += std::abs(firstList[i]-secondList[i]);
+      for (size_t i=0; i < firstList.size(); i++){
+        sum += std::abs(firstList[i]-secondList[i]);
+      }
+
+      return sum;
     }
-
-    return sum;
-  }
 
   public:
 
-  Solution(std::vector<int> flist, std::vector<int> slist) {
-      firstList = flist;
-      secondList = slist;
+    Solution(std::vector<int> flist, std::vector<int> slist) {
+        firstList = flist;
+        secondList = slist;
 
-      sort(firstList.begin(), firstList.end());
-      sort(secondList.begin(), secondList.end());
-  }
+        sort(firstList.begin(), firstList.end());
+        sort(secondList.begin(), secondList.end());
+    }
 
-  ~Solution() {
-  }
+    ~Solution() {
+    }
 
-  void displayDistance(){
-      int distance = calcDistance();
-      std::cout << distance << std::endl;
-  }
+    void displayDistance(){
+        int distance = calcDistance();
+        std::cout << distance << std::endl;
+    }
 };
 
 
