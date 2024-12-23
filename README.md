@@ -1,4 +1,4 @@
-## Advent of code exercises
+## Advent of Code exercises
 
 Repository made purely just to store solutions for simple tasks from [AdventCode](https://adventofcode.com/)
 
