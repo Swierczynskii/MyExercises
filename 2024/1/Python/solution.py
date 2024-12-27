@@ -7,15 +7,12 @@ SECOND_LIST = [4,3,5,3,9,3]
 
 class Solution():
 
-  _first_list: List
-  _second_list: List
-
   def __init__(self, flist, slist):
     if len(flist) == len(slist):
       flist.sort()
       slist.sort()
-      self._first_list = flist
-      self._second_list = slist
+      self._first_list: List = flist
+      self._second_list: List = slist
     else:
       raise Exception("Lists have to be the same length!")
 
