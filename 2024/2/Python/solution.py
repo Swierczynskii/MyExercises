@@ -17,7 +17,7 @@ class Solution:
   def _is_difference_correct(self, report):
     for idx, level in enumerate(report[:-1]):
       abs_val = abs(level - report[idx+1])
-      if abs_val > 3 or abs_val == 0:
+      if abs_val > 3 or abs_val < 1:
         return False
     return True
 
@@ -30,7 +30,6 @@ class Solution:
       self._reports = higher_list
 
   def _is_safe(self):
-
     safe_reports = []
     unsafe_reports = []
     for report in self._reports:
