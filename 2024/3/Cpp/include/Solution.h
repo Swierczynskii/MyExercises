@@ -5,25 +5,22 @@
 #include <vector>
 
 class Solution{
-
-  public:
-
-    void addMulResults();
-
-    void printMuls();
-
-    Solution(const std::string& corrMem);
-
-    ~Solution();
-  
   private:
-  
+  // vars
     std::string corruptedMemory;
     std::vector<int> corruptedMemVec;
     int summedVals;
-
+  // methods 
     void getMuls(const std::string& data);
+    void addMulResults();
 
+
+  public:
+  // methods
+    int getSum() const;
+  // Constructor & Destructor
+    Solution(const std::string& corrMem);
+    ~Solution();
 };
 
 #endif // SOLUTION_H

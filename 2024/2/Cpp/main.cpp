@@ -1,5 +1,5 @@
 #include <iostream>
-#include "include/solution.h"
+#include "include/Solution.h"
 
 
 int main() {
