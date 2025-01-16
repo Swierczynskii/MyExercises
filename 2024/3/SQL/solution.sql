@@ -32,6 +32,7 @@ select sum(regexp_substr(
 )) summed_up
   from muls;
 
+drop table corrupted_memories purge;
 
 -- Alternatively
 -- try to do it without regexp (using substr/instr)
