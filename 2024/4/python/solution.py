@@ -7,90 +7,90 @@ class Solution:
         with open(r"2024\4\input.txt") as f:
             file_content = f.read()
 
-        self.letter_x = 0
-        self.letter_y = 0
+        self._letter_x = 0
+        self._letter_y = 0
 
         self._word_length = 4
 
         self._puzzle_matrix = [list(row.strip()) for row in file_content.split()]
-        self.max_x = len(self._puzzle_matrix[0])-1
-        self.max_y = len(self._puzzle_matrix)-1
+        self._max_x = len(self._puzzle_matrix[0])-1
+        self._max_y = len(self._puzzle_matrix)-1
 
         self._hit = []
         self._output = []
 
     def _find_horizontal(self, letter):
-        _desire = 'XMAS'
-        _desire_backwards = 'SAMX'
+        desire = 'XMAS'
+        desire_backwards = 'SAMX'
 
-        if self.letter_x <= self.max_x+1 - self._word_length:
-            second = self._puzzle_matrix[self.letter_y][self.letter_x+1] 
-            third = self._puzzle_matrix[self.letter_y][self.letter_x+2]
-            fourth = self._puzzle_matrix[self.letter_y][self.letter_x+3]
-            __output = letter + second + third + fourth
+        if self._letter_x <= self._max_x+1 - self._word_length:
+            second = self._puzzle_matrix[self._letter_y][self._letter_x+1] 
+            third = self._puzzle_matrix[self._letter_y][self._letter_x+2]
+            fourth = self._puzzle_matrix[self._letter_y][self._letter_x+3]
+            output = letter + second + third + fourth
 
-            if __output == _desire or __output == _desire_backwards:
+            if output == desire or output == desire_backwards:
                 self._hit.append([
-                    (self.letter_y, self.letter_x), 
-                    (self.letter_y,self.letter_x+1),
-                    (self.letter_y,self.letter_x+2),
-                    (self.letter_y,self.letter_x+3)
+                    (self._letter_y, self._letter_x), 
+                    (self._letter_y,self._letter_x+1),
+                    (self._letter_y,self._letter_x+2),
+                    (self._letter_y,self._letter_x+3)
                 ])
 
     def _find_vertical(self, letter):
-        _desire = 'XMAS'
-        _desire_backwards = 'SAMX'
+        desire = 'XMAS'
+        desire_backwards = 'SAMX'
 
-        if self.letter_y <= self.max_y+1 - self._word_length:
-            second = self._puzzle_matrix[self.letter_y+1][self.letter_x] 
-            third = self._puzzle_matrix[self.letter_y+2][self.letter_x]
-            fourth = self._puzzle_matrix[self.letter_y+3][self.letter_x]
-            __output = letter + second + third + fourth
+        if self._letter_y <= self._max_y+1 - self._word_length:
+            second = self._puzzle_matrix[self._letter_y+1][self._letter_x] 
+            third = self._puzzle_matrix[self._letter_y+2][self._letter_x]
+            fourth = self._puzzle_matrix[self._letter_y+3][self._letter_x]
+            output = letter + second + third + fourth
 
-            if __output == _desire or __output == _desire_backwards:
+            if output == desire or output == desire_backwards:
                 self._hit.append([
-                    (self.letter_y, self.letter_x), 
-                    (self.letter_y+1,self.letter_x),
-                    (self.letter_y+2,self.letter_x),
-                    (self.letter_y+3,self.letter_x)
+                    (self._letter_y, self._letter_x), 
+                    (self._letter_y+1,self._letter_x),
+                    (self._letter_y+2,self._letter_x),
+                    (self._letter_y+3,self._letter_x)
                 ])
 
     def _find_diagonal(self, letter):
-        _desire = 'XMAS'
-        _desire_backwards = 'SAMX'
+        desire = 'XMAS'
+        desire_backwards = 'SAMX'
 
-        if self.letter_y <= self.max_y+1 - self._word_length:
-            if self.letter_x <= self.max_x+1 - self._word_length:
-                second = self._puzzle_matrix[self.letter_y+1][self.letter_x+1] 
-                third = self._puzzle_matrix[self.letter_y+2][self.letter_x+2]
-                fourth = self._puzzle_matrix[self.letter_y+3][self.letter_x+3]
-                __output = letter + second + third + fourth
+        if self._letter_y <= self._max_y+1 - self._word_length:
+            if self._letter_x <= self._max_x+1 - self._word_length:
+                second = self._puzzle_matrix[self._letter_y+1][self._letter_x+1] 
+                third = self._puzzle_matrix[self._letter_y+2][self._letter_x+2]
+                fourth = self._puzzle_matrix[self._letter_y+3][self._letter_x+3]
+                output = letter + second + third + fourth
 
-                if __output == _desire or __output == _desire_backwards:
+                if output == desire or output == desire_backwards:
                     self._hit.append([
-                        (self.letter_y, self.letter_x), 
-                        (self.letter_y+1,self.letter_x+1),
-                        (self.letter_y+2,self.letter_x+2),
-                        (self.letter_y+3,self.letter_x+3)
+                        (self._letter_y, self._letter_x), 
+                        (self._letter_y+1,self._letter_x+1),
+                        (self._letter_y+2,self._letter_x+2),
+                        (self._letter_y+3,self._letter_x+3)
                     ])
 
     def _find_diagonal_backwards(self, letter):
-        _desire = 'XMAS'
-        _desire_backwards = 'SAMX'
+        desire = 'XMAS'
+        desire_backwards = 'SAMX'
 
-        if self.letter_y <= self.max_y+1 - self._word_length:
-            if self.letter_x >= self._word_length-1:
-                second = self._puzzle_matrix[self.letter_y+1][self.letter_x-1] 
-                third = self._puzzle_matrix[self.letter_y+2][self.letter_x-2]
-                fourth = self._puzzle_matrix[self.letter_y+3][self.letter_x-3]
-                __output = letter + second + third + fourth
+        if self._letter_y <= self._max_y+1 - self._word_length:
+            if self._letter_x >= self._word_length-1:
+                second = self._puzzle_matrix[self._letter_y+1][self._letter_x-1] 
+                third = self._puzzle_matrix[self._letter_y+2][self._letter_x-2]
+                fourth = self._puzzle_matrix[self._letter_y+3][self._letter_x-3]
+                output = letter + second + third + fourth
 
-                if __output == _desire or __output == _desire_backwards:
+                if output == desire or output == desire_backwards:
                     self._hit.append([
-                        (self.letter_y, self.letter_x), 
-                        (self.letter_y+1,self.letter_x-1),
-                        (self.letter_y+2,self.letter_x-2),
-                        (self.letter_y+3,self.letter_x-3)
+                        (self._letter_y, self._letter_x), 
+                        (self._letter_y+1,self._letter_x-1),
+                        (self._letter_y+2,self._letter_x-2),
+                        (self._letter_y+3,self._letter_x-3)
                     ])
 
     def solve(self):
@@ -102,9 +102,9 @@ class Solution:
                 self._find_diagonal(curr_letter_x)
                 self._find_diagonal_backwards(curr_letter_x)
 
-                self.letter_x += 1
-            self.letter_y += 1
-            self.letter_x = 0
+                self._letter_x += 1
+            self._letter_y += 1
+            self._letter_x = 0
     
         for dots in self._hit:
             # if . not in string in _puzzle_matrix then add .
